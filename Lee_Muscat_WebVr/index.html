@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicalInstruments</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="dumlowpoly" src="resources/electronic_drum_set.glb"></a-asset-item>
+            <a-asset-item id="Room" src="resources/vr_gallery/scene.gltf"></a-asset-item>
+            <a-asset-item id="Flute" src="resources/wajia_flute/scene.gltf"></a-asset-item>
+            <a-asset-item id="Guitar" src="resources/guitar/scene.gltf"></a-asset-item>
+            <a-asset-item id="acoustic_guitar" src="resources/acoustic_guitar (1)/scene.gltf"></a-asset-item>
+            <a-asset-item id="Keyboard" src="resources/musical_keyboard/scene.gltf"></a-asset-item>
+            <a-asset-item id="Piano" src="resources/piano/scene.gltf"></a-asset-item>
+            <a-asset-item id="Violin" src="resources/violin1/scene.gltf"></a-asset-item>
+            <audio id="flutesound" src="resources/Sound/Flute.mp3"></audio>
+            <audio id="GuitarSound" src="resources/Sound/GUITAR SOUND EFFECT.mp3"></audio>
+            <audio id="AcousticGuitarSound" src="resources/Sound/Acoustic guitar sound effect free download.mp3"></audio>
+            <audio id="pianoSound" src="resources/Sound/pianoSound.mp3"></audio>
+            <audio id="ViolinSound" src="resources/Sound/Violin.mp3"></audio>
+            <audio id="DrumsetSound" src="resources/Sound/drums.mp3"></audio>
+            <audio id="KeyboardSound" src="resources/Sound/YAMAHA PSR-E373 Concert Grand Piano Sound (Line Out).mp3"></audio>
+            <img id="RightArrow" src="resources/Right.png">
+            <img id="LeftArrow" src="resources/Left.png">
+        </a-assets>
+
+        
+
+        <a-entity position="0 0 0" animation="property:position;to:0 0 -6;from: 0 0 0;dur:5000;">
+            <a-camera id="camera">
+                <a-entity cursor position="0 0 -1" ></a-entity>
+                <a-cursor raycaster="objects: .ui"></a-cursor>
+            </a-camera>
+        </a-entity>
+
+
+        <a-plane color="white" height="1" scale="700 700" rotation="-90 0 0" position="0 -0.1 0"></a-plane>
+
+        <a-entity position="-2 2 -4">
+            <a-text value="Welcome to the VR Gallery For musical instruments" color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity position="-3.5 2 -13">
+            <a-text id="backtext1" value="oldest Instrument" color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity position="-3.5 -1 -13">
+            <a-text id="backtext2" value="Latest instruments" color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity position="-3.5 -1 -13">
+            <a-text id="backtext3" value="Most popular instruments" color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="textforflute" position="-4 1.5 -6" rotation=" 0 90 0">
+            <a-text value="This is the neanderthal flute. It is the oldest instrument created which dated 60000 years ago and was discovered in the divje babe cave near cerkno in 1995. " color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity position="-2 3.5 -10">
+            <a-text id="Click" value="Click instrument for sound" color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="textforguitar" rotation=" 0 90 0" position="-4 -2 -6">
+            <a-text value="Hybrid Acoustic-Electric Instruments which are instruments such as guitars, violins, and cellos but they are integrated with electronic components 
+            for amplification effects processing or midi connectivity. these were first developed in 1930 which the first electric instrument was made by George Beauchamp 
+            and Adolph Rickenbacker. " color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="textforkeyboard" rotation=" 0 90 0" position="-4 -2 -6">
+            <a-text value="Digital pianos and keyboards which are electronic musical instruments which are designed to replicate the sound and feel of acoustic pianos 
+            while offering additional features with technology. These were first developed in 1979 and patent in 1981 by wilton decker. " color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="textfordrumset" rotation=" 0 90 0" position="-4 -2 -6">
+            <a-text value="Electronic Drum Kits are instruments that use electronic sensors and triggers to generate sound. The tradition acoustic drum kits which use physical 
+            vibrations of drumhead and cymbals to create sound these electronic drum kits generate sound electronically which are typically made by synthesized or sampled drum 
+            and percussion sounds. These were first developed in the early 1970 by Graeme edge who was the drummer of the moody blues. " color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="textforpiano" rotation=" 0 90 0" position="-4 -2 -6">
+            <a-text value="Piano is the most popular instrument which there are about 1 billion people which are able to play the piano. The piano was invented by Bartolomeo Cristofori in 1655 in Italy.
+             " color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="textforAcousticGuitar" rotation=" 0 90 0" position="-4 -2 -6">
+            <a-text value="Guitar is the second most popular instrument which there are about 700 million people which are able to play the guitar. The guitar was invented by a German immigrant in America 
+            in the 15h century. " color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="textforViolin" rotation=" 0 90 0" position="-4 -2 -6">
+            <a-text value="Violin is the third most popular instrument which there are about 6.5 million people which are able to play the violin. The violin was invented by 
+            andre amati around 1565." color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="rotate text" rotation=" 0 0 0" position="-1.65 1 -9">
+            <a-text value="Rotate" color="#000" width="6"></a-text>
+        </a-entity>
+
+        <a-entity id="NextinstrumentText" rotation=" 0 0 0" position="1 1 -9">
+            <a-text value="Next Instrument" color="#000" width="6"></a-text>
+        </a-entity>
+
+        
+        
+
+
+        <a-plane id="FluteRotate" src="#RightArrow" scale="0.5 0.5 0.5" position="-1 0.5 -9" class="ui"
+        event-set__rotate="_target:#flute;_event:click;animation.property:rotation;animation.from:0 0 0;animation.to:0 360 0;animation.easing:linear;animation.dur:5000;"></a-plane>
+
+        <a-plane id="FluteRotateBack" src="#LeftArrow" scale="0.5 0.5 0.5" position="-1.5 0.5 -9" class="ui"
+        event-set__rotate="_target:#flute;_event:click;animation.property:rotation;animation.from:0 360 0;animation.to:0 0 0;animation.easing:linear;animation.dur:5000;"></a-plane>
+        
+
+        <a-plane id="guitarRotate" src="#RightArrow" scale="0.5 0.5 0.5" position="-1 -1 -9" class="ui"
+        event-set__rotate="_target:#guitar;_event:click; animation.property:rotation;animation.from:90 -90 0;animation.to:90 265 0;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+        <a-plane id="guitarRotateaback" src="#LeftArrow" scale="0.5 0.5 0.5" position="-1.5 -1 -9" class="ui"
+        event-set__rotate="_target:#guitar;_event:click; animation.property:rotation;animation.from:90 265 0;animation.to:90 -90 0;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+
+        <a-plane id="KeyboardRotate" src="#RightArrow" scale="0.5 0.5 0.5" position="-1 -1 -9" class="ui"
+        event-set__rotate="_target:#keyboard;_event:click; animation.property:rotation;animation.to:0 360 0;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+        
+        <a-plane id="KeyboardRotateBack" src="#LeftArrow" scale="0.5 0.5 0.5" position="-1.5 -1 -9" class="ui"
+        event-set__rotate="_target:#keyboard;_event:click; animation.property:rotation;animation.to:0 0 0;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+        <a-plane id="DrumsetRotate" src="#RightArrow" scale="0.5 0.5 0.5" position="-1 -1 -9" class="ui"
+        event-set__rotate="_target:#drumset;_event:click;animation.property:rotation;animation.from:0 180 0;animation.to:0 540 0 ;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+        <a-plane id="DrumsetRotateBack" src="#LeftArrow" scale="0.5 0.5 0.5" position="-1.5 -1 -9" class="ui"
+        event-set__rotate="_target:#drumset;_event:click;animation.property:rotation;animation.from:0 540 0;animation.to:0 180 0 ;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+        <a-plane id="pianoRotate" src="#RightArrow" scale="0.5 0.5 0.5" position="-1 -1 -9" class="ui"
+        event-set__rotate="_target:#piano;_event:click; animation.property:rotation;animation.to:0 360 0;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+        <a-plane id="pianoRotateBack" src="#LeftArrow" scale="0.5 0.5 0.5" position="-1.5 -1 -9" class="ui"
+        event-set__rotate="_target:#piano;_event:click; animation.property:rotation;animation.to:0 0 0;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+
+        <a-plane id="AcousticGuitarRotate" src="#RightArrow" scale="0.5 0.5 0.5" position="-1 -1 -9" class="ui"
+        event-set__rotate="_target:#acousticguitar;_event:click;animation.property:rotation;animation.from: 0 0 0;animation.to:0 360 0 ;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+        <a-plane id="AcousticGuitarRotateBack" src="#LeftArrow" scale="0.5 0.5 0.5" position="-1.5 -1 -9" class="ui"
+        event-set__rotate="_target:#acousticguitar;_event:click;animation.property:rotation;animation.from: 0 360 0;animation.to:0 0 0 ;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+
+        <a-plane id="ViolinRotate" src="#RightArrow" scale="0.5 0.5 0.5" position="-1 -1 -9" class="ui"
+        event-set__rotate="_target:#violin;_event:click; animation.property:rotation;animation.to:0 360 0;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+        <a-plane id="ViolinRotateBack" src="#LeftArrow" scale="0.5 0.5 0.5" position="-1.5 -1 -9" class="ui"
+        event-set__rotate="_target:#violin;_event:click;animation.property:rotation;animation.from: 0 360 0;animation.to:0 0 0 ;animation.easing:linear;animation.dur:5000;"
+        ></a-plane>
+
+
+        
+
+
+        <a-box id="NextInstrumentguitar" color="orange" scale="0.5 0.5 0.5" position="2 0.5 -9" class="ui"
+    event-set__position="_target:#flute;_event:click;animation.property:position;animation.to:0 -400 -10;animation.dur:1000;"
+    event-set__position__2="_target:#guitar;_event:click;animation.property:position;animation.to:0 2 -10;animation.dur:1000;"
+    event-set__position__3="_target:#textforflute;_event:click;animation.property:position;animation.to:-4 -1 -6;animation.dur:1000;"
+    event-set__position__4="_target:#textforguitar;_event:click;animation.property:position;animation.to:-4 1.5 -6;animation.dur:1000;"
+    event-set__position__5="_target:#FluteRotate;_event:click;animation.property:position;animation.to:-1 -1 -9;animation.dur:1000;"
+    event-set__position__6="_target:#guitarRotate;_event:click;animation.property:position;animation.to:-1 0.5 -9;animation.dur:1000;"
+    event-set__position__7="_target:#NextInstrumentKeyboard;_event:click;animation.property:position;animation.to:2 0.5 -9;animation.dur:1000;"
+    event-set__position__8="_target:#NextInstrumentguitar;_event:click;animation.property:position;animation.to:2 -1 -9;animation.dur:1000;"
+    event-set__position__9="_target:#backtext1;_event:click;animation.property:position;animation.to:-3.5 -1 -13;animation.dur:1000;"
+    event-set__position__10="_target:#backtext2;_event:click;animation.property:position;animation.to:0 3 0;animation.dur:1000;"
+    event-set__position__11="_target:#FluteRotateBack;_event:click;animation.property:position;animation.to:-1.5 -1 -9;animation.dur:1000;"
+    event-set__position__12="_target:#guitarRotateaback;_event:click;animation.property:position;animation.to:-1.5 0.5 -9;animation.dur:1000;"
+    ></a-box>
+
+    <a-box id="NextInstrumentKeyboard" color="Blue" scale="0.5 0.5 0.5" position="2 -1 -9" class="ui"
+    event-set__position="_target:#guitar;_event:click;animation.property:position;animation.to:0 -400 -10;animation.dur:1000;"
+    event-set__position__2="_target:#keyboard;_event:click;animation.property:position;animation.to:0 1 -10;animation.dur:1000;"
+    event-set__position__3="_target:#textforguitar;_event:click;animation.property:position;animation.to:-4 -2 -6;animation.dur:1000;"
+    event-set__position__4="_target:#textforkeyboard;_event:click;animation.property:position;animation.to:-4 1.5 -6;animation.dur:1000;"
+    event-set__position__5="_target:#guitarRotate;_event:click;animation.property:position;animation.to:-1 -1 -9;animation.dur:1000;"
+    event-set__position__6="_target:#KeyboardRotate;_event:click;animation.property:position;animation.to:-1 0.5 -9;animation.dur:1000;"
+    event-set__position__7="_target:#NextInstrumentdrumkit;_event:click;animation.property:position;animation.to:2 0.5 -9;animation.dur:1000;"
+    event-set__position__8="_target:#NextInstrumentKeyboard;_event:click;animation.property:position;animation.to:2 -1 -9;animation.dur:1000;"
+    event-set__position__9="_target:#guitarRotateaback;_event:click;animation.property:position;animation.to:-1.5 -1 -9;animation.dur:1000;"
+    event-set__position__10="_target:#KeyboardRotateBack;_event:click;animation.property:position;animation.to:-1.5 0.5 -9;animation.dur:1000;"
+    ></a-box>
+
+
+    <a-box id="NextInstrumentdrumkit" color="green" scale="0.5 0.5 0.5" position="2 -1 -9" class="ui"
+    event-set__position="_target:#keyboard;_event:click;animation.property:position;animation.to:0 -400 -10;animation.dur:1000;"
+    event-set__position__2="_target:#drumset;_event:click;animation.property:position;animation.to:0 1 -10;animation.dur:1000;"
+    event-set__position__3="_target:#textforkeyboard;_event:click;animation.property:position;animation.to:-4 -1 -6;animation.dur:1000;"
+    event-set__position__4="_target:#textfordrumset;_event:click;animation.property:position;animation.to:-4 1.5 -6;animation.dur:1000;"
+    event-set__position__5="_target:#KeyboardRotate;_event:click;animation.property:position;animation.to:-1 -1 -9;animation.dur:1000;"
+    event-set__position__6="_target:#DrumsetRotate;_event:click;animation.property:position;animation.to:-1 0.5 -9;animation.dur:1000;"
+    event-set__position__7="_target:#NextInstrumentPiano;_event:click;animation.property:position;animation.to:2 0.5 -9;animation.dur:1000;"
+    event-set__position__8="_target:#NextInstrumentdrumkit;_event:click;animation.property:position;animation.to:2 -1 -9;animation.dur:1000;"
+    event-set__position__9="_target:#KeyboardRotateBack;_event:click;animation.property:position;animation.to:-1.5 -1 -9;animation.dur:1000;"
+    event-set__position__10="_target:#DrumsetRotateBack;_event:click;animation.property:position;animation.to:-1.5 0.5 -9;animation.dur:1000;"
+    ></a-box>
+
+    <a-box id="NextInstrumentPiano" color="yellow" scale="0.5 0.5 0.5" position="2 -1 -9" class="ui"
+    event-set__position="_target:#drumset;_event:click;animation.property:position;animation.to:0 -2000 -10;animation.dur:1000;"
+    event-set__position__2="_target:#piano;_event:click;animation.property:position;animation.to:0 1 -10;animation.dur:1000;"
+    event-set__position__3="_target:#textfordrumset;_event:click;animation.property:position;animation.to:-4 -2 -6;animation.dur:1000;"
+    event-set__position__4="_target:#textforpiano;_event:click;animation.property:position;animation.to:-4 1.5 -6;animation.dur:1000;"
+    event-set__position__5="_target:#DrumsetRotate;_event:click;animation.property:position;animation.to:-1 -1 -9;animation.dur:1000;"
+    event-set__position__6="_target:#pianoRotate;_event:click;animation.property:position;animation.to:-1 0.5 -9;animation.dur:1000;"
+    event-set__position__7="_target:#NextInstrumentAcousticGuitar;_event:click;animation.property:position;animation.to:2 0.5 -9;animation.dur:1000;"
+    event-set__position__8="_target:#NextInstrumentPiano;_event:click;animation.property:position;animation.to:2 -1 -9;animation.dur:1000;"
+    event-set__position__9="_target:#DrumsetRotateBack;_event:click;animation.property:position;animation.to:-1.5 -1 -9;animation.dur:1000;"
+    event-set__position__10="_target:#pianoRotateBack;_event:click;animation.property:position;animation.to:-1.5 0.5 -9;animation.dur:1000;"
+    event-set__position__11="_target:#backtext2;_event:click;animation.property:position;animation.to:-3.5 -1 -13;animation.dur:1000;"
+    event-set__position__12="_target:#backtext3;_event:click;animation.property:position;animation.to:0 3 0;animation.dur:1000;"
+    ></a-box>
+
+    <a-box id="NextInstrumentAcousticGuitar" color="brown" scale="0.5 0.5 0.5" position="2 -1 -9" class="ui"
+    event-set__position="_target:#piano;_event:click;animation.property:position;animation.to:0 -400 -10;animation.dur:1000;"
+    event-set__position__2="_target:#acousticguitar;_event:click;animation.property:position;animation.to:0 1.5 -10;animation.dur:1000;"
+    event-set__position__3="_target:#textforpiano;_event:click;animation.property:position;animation.to:-4 -1 -6;animation.dur:1000;"
+    event-set__position__4="_target:#textforAcousticGuitar;_event:click;animation.property:position;animation.to:-4 1.5 -6;animation.dur:1000;"
+    event-set__position__5="_target:#pianoRotate;_event:click;animation.property:position;animation.to:-1 -1 -9;animation.dur:1000;"
+    event-set__position__6="_target:#AcousticGuitarRotate;_event:click;animation.property:position;animation.to:-1 0.5 -9;animation.dur:1000;"
+    event-set__position__7="_target:#NextInstrumentViolin;_event:click;animation.property:position;animation.to:2 0.5 -9;animation.dur:1000;"
+    event-set__position__8="_target:#NextInstrumentAcousticGuitar;_event:click;animation.property:position;animation.to:2 -1 -9;animation.dur:1000;"
+    event-set__position__9="_target:#pianoRotateBack;_event:click;animation.property:position;animation.to:-1.5 -1 -9;animation.dur:1000;"
+    event-set__position__10="_target:#AcousticGuitarRotateBack;_event:click;animation.property:position;animation.to:-1.5 0.5 -9;animation.dur:1000;"
+    ></a-box>
+
+    <a-box id="NextInstrumentViolin" color="purple" scale="0.5 0.5 0.5" position="2 -1 -9" class="ui"
+    event-set__position="_target:#acousticguitar;_event:click;animation.property:position;animation.to:0 -400 -10;animation.dur:1000;"
+    event-set__position__2="_target:#violin;_event:click;animation.property:position;animation.to:0 1 -10;animation.dur:1000;"
+    event-set__position__3="_target:#textforAcousticGuitar;_event:click;animation.property:position;animation.to:-4 -1 -6;animation.dur:1000;"
+    event-set__position__4="_target:#textforViolin;_event:click;animation.property:position;animation.to:-4 1.5 -6;animation.dur:1000;"
+    event-set__position__5="_target:#AcousticGuitarRotate;_event:click;animation.property:position;animation.to:-1 -1 -9;animation.dur:1000;"
+    event-set__position__6="_target:#ViolinRotate;_event:click;animation.property:position;animation.to:-1 0.5 -9;animation.dur:1000;"
+    event-set__position__7="_target:#NextInstrumentflute;_event:click;animation.property:position;animation.to:2 0.5 -9;animation.dur:1000;"
+    event-set__position__8="_target:#NextInstrumentViolin;_event:click;animation.property:position;animation.to:2 -1 -9;animation.dur:1000;"
+    event-set__position__9="_target:#AcousticGuitarRotateBack;_event:click;animation.property:position;animation.to:-1.5 -1 -9;animation.dur:1000;"
+    event-set__position__10="_target:#ViolinRotateBack;_event:click;animation.property:position;animation.to:-1.5 0.5 -9;animation.dur:1000;"
+    ></a-box>
+
+    <a-box id="NextInstrumentflute" color="cyan" scale="0.5 0.5 0.5" position="2 -1 -9" class="ui"
+    event-set__position="_target:#violin;_event:click;animation.property:position;animation.to:0 -800 -10;animation.dur:1000;"
+    event-set__position__2="_target:#flute;_event:click;animation.property:position;animation.to:0 1 -10;animation.dur:1000;"
+    event-set__position__3="_target:#textforViolin;_event:click;animation.property:position;animation.to:-4 -1 -6;animation.dur:1000;"
+    event-set__position__4="_target:#textforflute;_event:click;animation.property:position;animation.to:-4 1.5 -6;animation.dur:1000;"
+    event-set__position__5="_target:#ViolinRotate;_event:click;animation.property:position;animation.to:-1 -1 -9;animation.dur:1000;"
+    event-set__position__6="_target:#FluteRotate;_event:click;animation.property:position;animation.to:-1 0.5 -9;animation.dur:1000;"
+    event-set__position__7="_target:#NextInstrumentguitar;_event:click;animation.property:position;animation.to:2 0.5 -9;animation.dur:1000;"
+    event-set__position__8="_target:#NextInstrumentflute;_event:click;animation.property:position;animation.to:2 -1 -9;animation.dur:1000;"
+    event-set__position__9="_target:#ViolinRotateBack;_event:click;animation.property:position;animation.to:-1.5 -1 -9;animation.dur:1000;"
+    event-set__position__10="_target:#FluteRotateBack;_event:click;animation.property:position;animation.to:-1.5 0.5 -9;animation.dur:1000;"
+    event-set__position__11="_target:#backtext3;_event:click;animation.property:position;animation.to:-3.5 -1 -13;animation.dur:1000;"
+    event-set__position__12="_target:#backtext1;_event:click;animation.property:position;animation.to:-3.5 2 -13;animation.dur:1000;"
+    ></a-box>
+ 
+        <a-entity position="0 1 -10" scale="0.05 0.05 0.05" id="flute" gltf-model="#Flute" sound="src: #flutesound; on:click" ></a-entity>
+
+        <a-entity position="0 -1 -10" scale="0.2 0.2 0.2" id="guitar" rotation=" 90 -90 0" gltf-model="#Guitar" sound="src: #GuitarSound; on:click"></a-entity>
+
+        <a-entity position="0 -1 -10" scale="0.3 0.3 0.3"  id="keyboard" rotation=" 0 0 0" gltf-model="#Keyboard" sound="src: #KeyboardSound; on:click"></a-entity>
+
+        <a-entity position="0 -1 -10" scale="0.6 0.6 0.6"  id="drumset" rotation=" 0 180 0" gltf-model="#dumlowpoly" sound="src: #DrumsetSound; on:click"></a-entity>
+
+        <a-entity position="0 -2 -10" scale="0.02 0.02 0.02"  id="piano" rotation=" 0 0 0" gltf-model="#Piano" sound="src: #pianoSound; on:click"></a-entity>
+
+        <a-entity position="0 -2 -10" scale="0.04 0.04 0.04"  id="violin" rotation=" 0 0 0" gltf-model="#Violin" sound="src: #ViolinSound; on:click"></a-entity>
+
+        <a-entity position="0 -2 -10" scale="0.2 0.2 0.2" rotation=" 0 0 0" id="acousticguitar" gltf-model="#acoustic_guitar" sound="src: #AcousticGuitarSound; on:click"></a-entity>
+
+        <a-entity position="0 0 -10" gltf-model="#Room"></a-entity>
+    </a-scene>
+</body>
+
+</html>
